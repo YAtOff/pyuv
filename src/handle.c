@@ -14,7 +14,7 @@ resurrect_object(PyObject *self)
     Py_ssize_t refcnt = Py_REFCNT(self);
     ASSERT(Py_REFCNT(self) != 0);
     _Py_NewReference(self);
-    Py_REFCNT(self) = refcnt;
+    Py_SET_REFCNT(self, refcnt);
     /* If Py_REF_DEBUG, _Py_NewReference bumped _Py_RefTotal, so
      * we need to undo that. */
 #ifdef _Py_DEC_REFTOTAL
